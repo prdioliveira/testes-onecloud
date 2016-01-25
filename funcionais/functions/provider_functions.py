@@ -1,12 +1,10 @@
 # -*-coding: UTF-8 -*-
 
-import sys
+import os
 from selenium.common.exceptions import NoSuchElementException
 
-project_path = sys.path[1]
-completo = project_path + '/funcionais/arquivo/lista.txt'
-
-
+diretorio = os.path.dirname(os.path.realpath(__file__))
+completo = diretorio + '/arquivo/lista.txt'
 def cadastrar_provider(driver):
     driver.maximize_window()
     arq = open(completo, 'r')

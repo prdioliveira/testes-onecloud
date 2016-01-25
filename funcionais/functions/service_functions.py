@@ -1,13 +1,12 @@
 # -*-coding: UTF-8 -*-
 
-import sys
+import os
 from selenium.common.exceptions import NoSuchElementException
-
-project_path = sys.path[1]
+diretorio = os.path.dirname(os.path.realpath(__file__))
 
 
 def cadastrar_service_provider_aws(driver):
-    completo = project_path + '/funcionais/arquivo/provider_aws.txt'
+    completo = diretorio + '/arquivo/provider_aws.txt'
     driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
@@ -48,7 +47,7 @@ def cadastrar_service_provider_aws(driver):
 
 
 def cadastrar_service_provider_hp(driver):
-    completo = project_path + '/funcionais/arquivo/provider_hp.txt'
+    completo = diretorio + '/arquivo/provider_hp.txt'
     driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
@@ -87,7 +86,7 @@ def cadastrar_service_provider_hp(driver):
 
 
 def cadastrar_service_provider_microsoft(driver):
-    completo = project_path + '/funcionais/arquivo/provider_hp.txt'
+    completo = diretorio + '/arquivo/provider_hp.txt'
     driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
