@@ -3,6 +3,8 @@
 
 def login_valida_campos(driver, url):
     driver.get(url)
+    driver.maximize_window()
+    driver.implicitly_wait(2)
 
     # bind
     field_username = driver.find_element_by_id("id_username")
@@ -44,6 +46,9 @@ def login_sucess(driver, url):
     pwd = "admin"
 
     driver.get(url)
+    driver.maximize_window()
+    driver.implicitly_wait(2)
+
     field_username = driver.find_element_by_id("id_username")
     field_password = driver.find_element_by_id("id_password")
     btn_login = driver.find_element_by_xpath("//input[@value='Log in']")
