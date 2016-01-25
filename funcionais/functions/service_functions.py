@@ -1,13 +1,15 @@
-# -*-coding: UTF-8 -*-
+# -*-coding: UTF-8 -*
+
 
 import os
+from time import sleep
 from selenium.common.exceptions import NoSuchElementException
+
 diretorio = os.path.dirname(os.path.realpath(__file__))
 
 
 def cadastrar_service_provider_aws(driver):
     completo = diretorio + '/arquivo/provider_aws.txt'
-    driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
     link_services = driver.find_element_by_link_text("Services")
@@ -48,7 +50,6 @@ def cadastrar_service_provider_aws(driver):
 
 def cadastrar_service_provider_hp(driver):
     completo = diretorio + '/arquivo/provider_hp.txt'
-    driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
     in_success = 'The service "'
@@ -87,7 +88,6 @@ def cadastrar_service_provider_hp(driver):
 
 def cadastrar_service_provider_microsoft(driver):
     completo = diretorio + '/arquivo/provider_hp.txt'
-    driver.maximize_window()
     arq = open(completo, 'r')
     linha = arq.readlines()
     in_success = 'The service "'
@@ -122,3 +122,19 @@ def cadastrar_service_provider_microsoft(driver):
                    driver.find_element_by_xpath("//li[@class='success']").text
         except NoSuchElementException:
             pass
+
+
+def update_service(driver):
+    msg_success = 'The service "m1.medium" was changed successfully.'
+    try:
+        link_services = driver.find_element_by_link_text("Services")
+        link_services.click()
+        link_nm_service = driver.find_element_by_xpath("//a[text()='m1.medium']")
+        link_nm_service.click()
+        select = driver.find_element_by_id("id_provider")
+        select.send_keys("Microsoft Azure")
+        btn_saved = driver.find_element_by_name("_save")
+        btn_saved.click()
+        assert msg_success == driver.find_element_by_xpath("//li[@class='success']").text
+    except NoSuchElementException:
+        pass
