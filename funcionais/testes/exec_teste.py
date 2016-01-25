@@ -16,21 +16,21 @@ class Login(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
 
-    def test_login(self):
+    def test_1login(self):
         login_valida_campos(self.driver, "http://localhost:8000/admin")
         login_sucess(self.driver, "http://localhost:8000/admin")
 
-    def test_cadastrar_provider(self):
+    def test_2cadastrar_provider(self):
         login_sucess(self.driver, "http://localhost:8000/admin")
         cadastrar_provider(self.driver)
 
-    def test_cadastrar_service(self):
+    def test_3cadastrar_service(self):
         login_sucess(self.driver, "http://localhost:8000/admin")
         cadastrar_service_provider_aws(self.driver)
         cadastrar_service_provider_hp(self.driver)
         cadastrar_service_provider_microsoft(self.driver)
 
-    def test_acesso_site(self):
+    def test_4acesso_site(self):
         acessar_site(self.driver, "http://localhost:8000")
 
     def tearDown(self):
