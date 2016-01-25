@@ -1,9 +1,7 @@
 # -*-coding: UTF-8 -*-
 
 import unittest
-
 from selenium import webdriver
-
 from funcionais.functions.login_functions import login_sucess
 from funcionais.functions.login_functions import login_valida_campos
 from funcionais.functions.provider_functions import cadastrar_provider
