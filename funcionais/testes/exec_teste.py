@@ -13,6 +13,7 @@ from funcionais.functions.provider_functions import update_provider
 from funcionais.functions.provider_functions import delete_one_provider
 from funcionais.functions.provider_functions import delete_all_provider
 from funcionais.functions.site_functions import acessar_site
+from funcionais.functions.site_functions import ordenar_precos
 
 
 class Login(unittest.TestCase):
@@ -45,6 +46,7 @@ class Login(unittest.TestCase):
     def test_5acesso_site(self):
         print 'Testes de acesso ao site...'
         acessar_site(self.driver, "http://localhost:8000")
+        ordenar_precos(self.driver)
 
     def test_6delete_service_provider(self):
         login_sucess(self.driver, "http://localhost:8000/admin")
